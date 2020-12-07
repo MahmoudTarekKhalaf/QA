@@ -10,14 +10,14 @@ from copy import deepcopy
 import neal
 import dimod
 
-big_num = 50
-num_x = 5
-x_upper = 10
-delta_x = 2*x_upper/(num_x-1)
-num_psi = 5
-delta_psi = 1/(num_psi-1)
-m = 1; h_par = 1
-lamda_chain = 50000
+big_num = 50 
+num_x = 5                           # Number of x values
+x_upper = 10                        # Max value of x
+delta_x = 2*x_upper/(num_x-1)       # separation between different values of x
+num_psi = 5                         # Number of psi values
+delta_psi = 1/(num_psi-1)           # separation between different values of psi
+m = 1; h_par = 1                    # setting the mass and hpar = 1
+lamda_chain = 50000                 # lagrange factor for the chain
 
 # Encode indices.
 def get_index(x_ind,psi_ind):
@@ -34,9 +34,9 @@ def get_x_and_psi_value(index):
     psi = psi_ind*delta_psi
     return x, psi
 
-
+# Variables to encode the BQM on:
 h={}
-J = {}
+J = {} 
 
 #setting the chain
 for x in range(num_x):
